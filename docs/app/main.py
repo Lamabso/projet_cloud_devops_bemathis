@@ -10,30 +10,30 @@ def create_app() -> Flask:
     cache = MemoryTTLCache(ttl_seconds=60, maxsize=128)
     content_service = ContentService(content_client, cache)
 
-    @app.route("/healthz")
+    @app.get("/healthz")
     def healthz():
         return jsonify({"status": "ok test"}), 200
 
-    @app.route("/readyz")
+    @app.get("/readyz")
     def readyz():
         return jsonify({"status": "ready"}), 200
 
-    @app.route("/")
+    @app.get("/")
     def index():
         events = content_service.get_items("events.json")["items"]
         news = content_service.get_items("news.yaml")["items"]
         faq = content_service.get_items("faq.json")["items"]
         return render_template("index.html")
 
-    @app.route("/api/events")
+    @app.get("/api/events")
     def api_events():
         return jsonify(content_service.get_items("events.json")), 200
 
-    @app.route("/api/news")
+    @app.get("/api/news")
     def api_news():
         return jsonify(content_service.get_items("news.yaml")), 200
 
-    @app.route("/api/faq")
+    @app.get("/api/faq")
     def api_faq():
         return jsonify(content_service.get_items("faq.json")), 200
 
