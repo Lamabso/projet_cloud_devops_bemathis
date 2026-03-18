@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: app
-          image: ghcr.io/lamabso/projet-cloud-devops-bemathis:latest
+          image: ghcr.io/lamabso/projet_cloud_devops_bemathis:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
