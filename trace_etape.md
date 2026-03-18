@@ -63,3 +63,26 @@
 ## Résultats attendus
 - Workflow vert sur GitHub
 - Image visible dans GHCR (Packages)
+
+# Trace - Étape 6 (AKS)
+
+## Objectif
+- Déployer l'app Flask sur AKS via manifests Kubernetes
+- Ingress NGINX, Service, Deployment, ConfigMap, Secret, probes, requests/limits
+
+## Environnement
+- Azure for Students
+- Région:
+- Resource Group:
+- AKS cluster:
+
+# Trace - Étape 7 (Monitoring & Sécurité)
+
+## Objectif
+- Monitoring basique AKS (CPU/Mem, disponibilité)
+- Logs applicatifs INFO
+- 1 alerte simple (5xx)
+- Sécurité: secrets hors Git + non-root + accès Blob via Secret (minimum)
+
+## État initial
+- App OK via Ingress (IP: 20.50.164.3)

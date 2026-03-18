@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: content-config
+  namespace: cloud-devops
+data:
+  CACHE_TTL_SECONDS: "60"

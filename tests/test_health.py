@@ -2,7 +2,7 @@ def _assert_health_payload(resp_json: dict):
     assert isinstance(resp_json, dict)
     assert "status" in resp_json
     assert isinstance(resp_json["status"], str)
-    assert resp_json["status"] in ("ok", "ready")
+    assert resp_json["status"] in ("ok test", "ready")
 
 
 def test_healthz(client):

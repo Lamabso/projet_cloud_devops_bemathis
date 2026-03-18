@@ -3,27 +3,27 @@ from flask import Flask, jsonify, render_template
 def create_app() -> Flask:
     app = Flask(__name__)
 
-    @app.get("/healthz")
+    @app.route("/healthz")
     def healthz():
-        return jsonify({"status": "ok"}), 200
+        return jsonify({"status": "ok test"}), 200
 
-    @app.get("/readyz")
+    @app.route("/readyz")
     def readyz():
         return jsonify({"status": "ready"}), 200
 
-    @app.get("/")
+    @app.route("/")
     def index():
         return render_template("index.html")
 
-    @app.get("/api/events")
+    @app.route("/api/events")
     def api_events():
         return jsonify({"items": []}), 200
 
-    @app.get("/api/news")
+    @app.route("/api/news")
     def api_news():
         return jsonify({"items": []}), 200
 
-    @app.get("/api/faq")
+    @app.route("/api/faq")
     def api_faq():
         return jsonify({"items": []}), 200
 
