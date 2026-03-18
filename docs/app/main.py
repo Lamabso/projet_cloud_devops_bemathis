@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, render_template
+from flask import Flask, app, jsonify, render_template
 
 from app.services.blob_client import LocalContentClient
 from app.services.cache import MemoryTTLCache
@@ -20,9 +20,6 @@ def create_app() -> Flask:
 
     @app.get("/")
     def index():
-        events = content_service.get_items("events.json")["items"]
-        news = content_service.get_items("news.yaml")["items"]
-        faq = content_service.get_items("faq.json")["items"]
         return render_template("index.html")
 
     @app.get("/api/events")
